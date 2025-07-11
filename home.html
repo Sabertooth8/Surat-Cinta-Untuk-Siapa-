@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memuat Halaman Cinta... 💌</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="loading-screen">
+  <div class="loading-container">
+    <h1>Memuat Surat Untuk Kak Raaa...</h1>
+    <div class="heart-beat">❤️</div>
+    <p>Tunggu sebentar ya, cinta sedang dirangkai 💗</p>
+  </div>
+
+  <script>
+    // Simulasi loading → lanjut ke password.html
+    setTimeout(() => {
+      window.location.href = "Pass.html ";
+    }, 4000); // 4 detik
+  </script>
+  <script>
+  function createPetalEmoji() {
+    const petal = document.createElement('div');
+    petal.textContent = '🌸';
+    petal.style.position = 'fixed';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.top = '-2rem';
+    petal.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    petal.style.animation = `fall-emoji ${4 + Math.random() * 3}s linear`;
+    petal.style.pointerEvents = 'none';
+    petal.style.zIndex = 9999;
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 8000);
+  }
+
+  setInterval(createPetalEmoji, 300);
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fall-emoji {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>

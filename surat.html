@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Untuk Kak Raaa 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="fade-in surat-page">
+  <div class="card">
+    <div id="typing"></div>
+
+    <a href="surat2.html" class="btn">Lanjut Baca 💌</a>
+  </div>
+
+  <img src="image/Teddy.png" alt="Teddy Bear" class="teddy">
+  <script>
+  function createPetalEmoji() {
+    const petal = document.createElement('div');
+    petal.textContent = '🌸';
+    petal.style.position = 'fixed';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.top = '-2rem';
+    petal.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    petal.style.animation = `fall-emoji ${4 + Math.random() * 3}s linear`;
+    petal.style.pointerEvents = 'none';
+    petal.style.zIndex = 9999;
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 8000);
+  }
+
+  setInterval(createPetalEmoji, 300);
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fall-emoji {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>
+
+<script>
+  // Ketika halaman selesai loading, tembakin confetti
+  window.onload = function() {
+    // Typing effect (pindahin isi sebelumnya ke sini kalau belum)
+    const text = `Dear Kak Raaa,\n\nTerima kasih udah jadi bagian dari hidup aku.\nKamu itu kayak sunrise setelah malam yang panjang.\nMaaf kalau aku belum sempurna, tapi semua ini aku bikin dari hati yang paling jujur 🌷\n\n🫶 Samuel`;
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i) === '\n' ? "<br>" : text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 30);
+      }
+    }
+    typeEffect();
+
+    // Confetti saat surat muncul
+    confetti({
+      particleCount: 200,
+      spread: 120,
+      origin: { y: 0.6 }
+    });
+  };
+</script>
+

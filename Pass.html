@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masuk ke Surat 💘</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    input {
+      padding: 12px 20px;
+      border: 2px solid #f48fb1;
+      border-radius: 30px;
+      font-size: 1rem;
+      width: 80%;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ec407a;
+      box-shadow: 0 0 10px rgba(236, 64, 122, 0.3);
+    }
+
+    button {
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      margin-top: 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body class="fade-in">
+  <div class="card">
+    <h2 style="margin-bottom: 20px;">Masukkan Kode Cinta 💌</h2>
+    <input type="password" id="lovePass" placeholder="contoh: <3samuel" />
+    <br />
+    <button onclick="checkPass()">Buka Surat</button>
+    <p id="error" style="color: red; margin-top: 10px;"></p>
+  </div>
+
+  <script>
+    function checkPass() {
+      const pass = document.getElementById("lovePass").value.trim();
+      const kode = "<3samuel"; // GANTI SESUAI PASS LO
+      if (pass === kode) {
+        window.location.href = "surat.html";
+      } else {
+        document.getElementById("error").innerText = "Yah salah... cobain lagi sayang 🥺";
+      }
+    }
+  </script>
+  <script>
+  function createPetalEmoji() {
+    const petal = document.createElement('div');
+    petal.textContent = '🌸';
+    petal.style.position = 'fixed';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.top = '-2rem';
+    petal.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    petal.style.animation = `fall-emoji ${4 + Math.random() * 3}s linear`;
+    petal.style.pointerEvents = 'none';
+    petal.style.zIndex = 9999;
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 8000);
+  }
+
+  setInterval(createPetalEmoji, 300);
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fall-emoji {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>
